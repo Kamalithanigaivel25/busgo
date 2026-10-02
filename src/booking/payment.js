@@ -1,4 +1,4 @@
-export function showPayment(bus, date, seat, passenger) {
+/**xport function showPayment(bus, date, seat, passenger) {
 
     const app = document.getElementById("app");
 
@@ -484,87 +484,7 @@ export function showPayment(bus, date, seat, passenger) {
 
         });
 
-}
-
-
-// ========================================
-// SELECT PAYMENT METHOD
-// ========================================
-
-/**function selectPaymentMethod(method) {
-
-    const options =
-        document.querySelectorAll(".payment-option");
-
-
-    options.forEach(option => {
-
-        option.classList.remove("active");
-
-    });
-
-
-    const selectedOption =
-        document.querySelector(
-            `[data-method="${method}"]`
-        );
-
-
-    if (selectedOption) {
-
-        selectedOption.classList.add("active");
-
-        const radio =
-            selectedOption.querySelector(
-                "input[type='radio']"
-            );
-
-        if (radio) {
-            radio.checked = true;
-        }
-
-    }
-
-
-    // Hide all details
-
-    document
-        .querySelectorAll(".payment-details")
-        .forEach(section => {
-
-            section.classList.add("hidden");
-
-        });
-
-
-    // Show selected details
-
-    if (method === "upi") {
-
-        document
-            .getElementById("upiSection")
-            .classList.remove("hidden");
-
-    }
-
-
-    if (method === "netbanking") {
-
-        document
-            .getElementById("netbankingSection")
-            .classList.remove("hidden");
-
-    }
-
-
-    if (method === "card") {
-
-        document
-            .getElementById("cardSection")
-            .classList.remove("hidden");
-
-    }
-*/
+}*/
 
 let selectedBank = "";
 
@@ -713,6 +633,87 @@ export function showPayment(bus, date, seat) {
             );
 
         });
+}
+
+
+// ========================================
+// SELECT PAYMENT METHOD
+// ========================================
+
+function selectPaymentMethod(method) {
+
+    const options =
+        document.querySelectorAll(".payment-option");
+
+
+    options.forEach(option => {
+
+        option.classList.remove("active");
+
+    });
+
+
+    const selectedOption =
+        document.querySelector(
+            `[data-method="${method}"]`
+        );
+
+
+    if (selectedOption) {
+
+        selectedOption.classList.add("active");
+
+        const radio =
+            selectedOption.querySelector(
+                "input[type='radio']"
+            );
+
+        if (radio) {
+            radio.checked = true;
+        }
+
+    }
+
+
+    // Hide all details
+
+    document
+        .querySelectorAll(".payment-details")
+        .forEach(section => {
+
+            section.classList.add("hidden");
+
+        });
+
+
+    // Show selected details
+
+    if (method === "upi") {
+
+        document
+            .getElementById("upiSection")
+            .classList.remove("hidden");
+
+    }
+
+
+    if (method === "netbanking") {
+
+        document
+            .getElementById("netbankingSection")
+            .classList.remove("hidden");
+
+    }
+
+
+    if (method === "card") {
+
+        document
+            .getElementById("cardSection")
+            .classList.remove("hidden");
+
+    }
+
 }
 
 
