@@ -491,7 +491,7 @@ export function showPayment(bus, date, seat, passenger) {
 // SELECT PAYMENT METHOD
 // ========================================
 
-function selectPaymentMethod(method) {
+/**function selectPaymentMethod(method) {
 
     const options =
         document.querySelectorAll(".payment-option");
@@ -564,7 +564,155 @@ function selectPaymentMethod(method) {
             .classList.remove("hidden");
 
     }
+*/
 
+let selectedBank = "";
+
+export function showPayment(bus, date, seat) {
+
+    const app = document.getElementById("app");
+
+    app.innerHTML = `
+
+        <div class="payment-page">
+
+            <div class="payment-card">
+
+                <h1>Payment</h1>
+
+                <p>
+                    ${bus.operator} |
+                    Seat ${seat}
+                </p>
+
+                <h3>₹${bus.price}</h3>
+
+
+                <div class="payment-methods">
+
+                    <button
+                        class="payment-method"
+                        id="netBankingBtn">
+                        🏦 Net Banking
+                    </button>
+
+                    <button
+                        class="payment-method"
+                        id="upiBtn">
+                        📱 UPI
+                    </button>
+
+                    <button
+                        class="payment-method"
+                        id="cardBtn">
+                        💳 Card
+                    </button>
+
+                </div>
+
+
+                <!-- NET BANKING -->
+
+                <div id="netBankingSection"
+                     style="display:none;">
+
+                    <label>Select Bank</label>
+
+                    <select id="bankSelect">
+
+                        <option value="">
+                            Select Bank
+                        </option>
+
+                        <option value="SBI">
+                            State Bank of India
+                        </option>
+
+                        <option value="HDFC">
+                            HDFC Bank
+                        </option>
+
+                        <option value="ICICI">
+                            ICICI Bank
+                        </option>
+
+                        <option value="Axis">
+                            Axis Bank
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    id="payButton"
+                    class="pay-btn">
+
+                    Pay ₹${bus.price}
+
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+
+    /* =========================
+       NET BANKING
+    ========================= */
+
+    document
+        .getElementById("netBankingBtn")
+        .addEventListener("click", () => {
+
+            document
+                .getElementById("netBankingSection")
+                .style.display = "block";
+
+        });
+
+
+    /* =========================
+       BANK SELECTION
+    ========================= */
+
+    document
+        .getElementById("bankSelect")
+        .addEventListener("change", (event) => {
+
+            selectedBank = event.target.value;
+
+            console.log(
+                "Selected Bank:",
+                selectedBank
+            );
+
+        });
+
+
+    /* =========================
+       PAYMENT
+    ========================= */
+
+    document
+        .getElementById("payButton")
+        .addEventListener("click", () => {
+
+            if (selectedBank === "") {
+
+                alert("Please select bank");
+
+                return;
+            }
+
+
+            alert(
+                `Payment successful using ${selectedBank}`
+            );
+
+        });
 }
 
 
