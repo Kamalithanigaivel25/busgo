@@ -1209,7 +1209,7 @@ button {
     background: white;
     color: #222;
 
-    padding: 18px;
+    padding: 1px;
 
     border-radius: 18px;
 
@@ -3033,6 +3033,7 @@ body {
 
 }
 
+
 /* =========================================
    SEARCH PAGE
 ========================================= */
@@ -4198,4 +4199,3 @@ body {
     }
 
 }
-
