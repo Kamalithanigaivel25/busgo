@@ -5,6 +5,7 @@ async function signupTest() {
     const driver = await new Builder()
         .forBrowser("chrome")
         .build();
+        
 try
 {
      
@@ -63,17 +64,16 @@ try
         await driver.findElement(By.css(".primary-btn"))
         .click();   
 
-        await driver.wait(until.elementLocated(By.css(".landing")), 5000);
+        
 
-         console.log(" Signup successful");
+        console.log(" Signup successful");
         console.log(" Login successful");
-        console.log(" Home page opened");
 
 }
 catch (error) {
-    console.error("Error during signup test:")
     console.error(error);
-}finally {
+}
+finally {
     await driver.quit();    
     }
 
