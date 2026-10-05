@@ -1,10 +1,12 @@
-const { Builder, By } = require("selenium-webdriver");
+const { Builder, By , until} = require("selenium-webdriver");
 
 async function signupTest() {
 
     const driver = await new Builder()
         .forBrowser("chrome")
         .build();
+try
+{
      
     // Website open
     await driver.get("https://thanigai.space");
@@ -61,14 +63,20 @@ async function signupTest() {
         await driver.findElement(By.css(".primary-btn"))
         .click();   
 
-        await driver.wait(until.elementLocated(By.id("showHome")), 5000);
+        await driver.wait(until.elementLocated(By.css(".landing")), 5000);
 
          console.log(" Signup successful");
         console.log(" Login successful");
         console.log(" Home page opened");
 
 }
+catch (error) {
+    console.error("Error during signup test:")
+    console.error(error);
+}finally {
+    await driver.quit();    
+    }
 
-
+}
 
 signupTest();
