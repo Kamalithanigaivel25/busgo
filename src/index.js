@@ -58,68 +58,6 @@ if (localStorage.getItem("loggedIn") === "true") {
 
 }
 
-
-/**export function showHome() {
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("busUser")
-        );
-
-    app.innerHTML = `
-
-        <header class="navbar">
-
-            <div class="logo">
-                🚌 BusGo
-            </div>
-
-            <nav>
-
-                <button onclick="searchBuses()">
-                    Search Bus
-                </button>
-
-                <button onclick="showBookings()">
-                    My Bookings
-                </button>
-
-                <button onclick="logout()">
-                    Logout
-                </button>
-
-            </nav>
-
-        </header>
-
-
-        <section class="home-section">
-
-            <div class="home-content">
-
-                <h1>
-                    Welcome,
-                    ${user?.name || "Passenger"} 👋
-                </h1>
-
-                <p>
-                    Book your bus journey quickly and easily.
-                </p>
-
-                <button
-                    class="primary-btn"
-                    onclick="searchBuses()"
-                >
-                    Search Buses
-                </button>
-
-            </div>
-
-        </section>
-    `;
-}*/
-
-
 export function showHome() {
 
     const user =

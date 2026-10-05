@@ -39,6 +39,7 @@ export function showLogin() {
                     >
 
                     <button
+                        
                         type="submit"
                         class="primary-btn"
                     >
@@ -92,7 +93,7 @@ function login(event) {
 
     if (!savedUser) {
 
-        alert("Please signup first.");
+        //alert("Please signup first.");
 
         showSignup();
 

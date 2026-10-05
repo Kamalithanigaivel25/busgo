@@ -108,7 +108,7 @@ function signup(event) {
     );
 
 
-    alert("Signup successful!");
+  //alert("Signup successful!");
 
     showLogin();
 }
