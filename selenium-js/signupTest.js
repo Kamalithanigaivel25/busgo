@@ -8,6 +8,11 @@ async function signupTest() {
         
 try
 {
+    for (let i = 0; i <= 5; i++) {
+
+    //Dynamic email generation
+        const email = `kamali${i}@gmail.com`;
+        console.log("using email:",email);
      
     // Website open
     await driver.get("https://thanigai.space");
@@ -27,12 +32,12 @@ try
     //  Enter Name
     await driver
         .findElement(By.id("signupName"))
-        .sendKeys("kamali");
+        .sendKeys("kamali${i}");
 
     //  Enter Email
     await driver
         .findElement(By.id("signupEmail"))
-        .sendKeys("kamali123@gmail.com");
+        .sendKeys("email");
 
     // Password
     await driver
@@ -68,6 +73,7 @@ try
 
         console.log(" Signup successful");
         console.log(" Login successful");
+    }
 
 }
 catch (error) {
