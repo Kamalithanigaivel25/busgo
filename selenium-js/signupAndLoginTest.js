@@ -1,14 +1,16 @@
-const { Builder, By , until} = require("selenium-webdriver");
+import{Builder ,By ,until} from "selenium-webdriver";
+import { searchBus } from "./searchTest.js";
 
-async function signupAndLogin(i) {
+async function signupAndLogin( i) {
 
-    const driver = await new Builder()
-        .forBrowser("chrome")
-        .build();
 
     const name = `kamali${i}`;
     const email = `kamali${i}@gmail.com`;
     const password = "12345";
+
+    const driver = await new Builder()
+    .forBrowser("chrome")
+    .build();
 
 
     //website open
@@ -22,7 +24,7 @@ async function signupAndLogin(i) {
     //wait for signup form to be visible
     await driver.wait(
         until.elementLocated(By.id("signupForm")),
-        5000
+        50000
     );
 
     //fill the signup form
@@ -37,7 +39,7 @@ async function signupAndLogin(i) {
     //wait for login form to be visible
     await driver.wait(
         until.elementLocated(By.id("loginForm")),
-        5000
+        50000
     );
 
     //fill the login form
@@ -55,10 +57,11 @@ async function signupAndLogin(i) {
 
     console.log(`Signup and login successful for user: ${name}`);
 
-    console.log(`     ===================`);
 
-    await driver.quit();
+    await searchBus(driver);
+
 }
+
 
 async function test() 
 {
@@ -76,3 +79,6 @@ try
 }
   
 test();
+
+
+

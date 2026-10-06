@@ -1,19 +1,23 @@
-const {Builder, By} = require("selenium-webdriver");
 
-async function searchBus(source, destination, date) {
-    const driver = await new Builder()
-        .forBrowser("chrome")
-        .build();
+import { By, until} from  "selenium-webdriver" ;
+ 
 
-    // Open the website
-    await driver.get("https://thanigai.space");
+export async function searchBus(driver) {
 
+    const from = "Chennai";
+    const to = "Bangalore";
+    const date = "2026-10-10";
+    //console.log("hellooo");
+
+
+    await driver.findElement(By.id("homeSearchBtn")).click();   
+   
     // Enter source
-    await driver.findElement(By.id("from")).sendKeys(source); 
+    await driver.findElement(By.id("from")).sendKeys(from); 
 
     // Enter destination
 
-    await driver.findElement(By.id("to")).sendKeys(destination);
+    await driver.findElement(By.id("to")).sendKeys(to);
 
     // Enter date
     await driver.findElement(By.id("travelDate")).sendKeys(date);         
@@ -25,16 +29,18 @@ async function searchBus(source, destination, date) {
 
 
     // Wait for search results to load
-    await driver.sleep(5000); // Adjust the wait time as needed     
+    //await driver.sleep(5000); // Adjust the wait time as needed     
 
     await driver.wait(until.elementLocated(By.id("busResults")), 
     10000);
 
-    console.log(`Bus search completed for ${source} to ${destination} on ${date}`);
+    console.log(`Bus search completed for ${from} to ${to} on ${date}`);
+
+    console.log(`     ===================`);
 
     await driver.quit();
 
 }
 
+    
 
- searchBus("Chennai", "Bangalore", "2026-10-10");
