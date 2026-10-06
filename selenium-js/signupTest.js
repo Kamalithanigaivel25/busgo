@@ -58,7 +58,7 @@ async function test()
         
  try
     {
-        for(let i=0;i<5;i++)
+        for(let i=1;i<=5;i++)
         {
         await signupAndLogin(driver,i) ;
 
