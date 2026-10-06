@@ -28,7 +28,7 @@ async function signupAndLogin(driver, i) {
     await driver.findElement(By.id("signupPassword")).sendKeys(password);
 
     //submit the signup form
-    await driver.findElement(By.css("primary-btn")).click();
+    await driver.findElement(By.css(".primary-btn")).click();
 
     //wait for login form to be visible
     await driver.wait(
