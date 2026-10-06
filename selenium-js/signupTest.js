@@ -12,7 +12,7 @@ try
 
     //Dynamic email generation
         const email = `kamali${i}@gmail.com`;
-        console.log("using email:",email);
+        //console.log("using email:",email);
      
     // Website open
     await driver.get("https://thanigai.space");
@@ -26,7 +26,7 @@ try
        
     await driver.wait(
             until.elementLocated(By.id("signupForm")),
-            5000
+            10000
         );  
 
     //  Enter Name
@@ -37,7 +37,7 @@ try
     //  Enter Email
     await driver
         .findElement(By.id("signupEmail"))
-        .sendKeys("email");
+        .sendKeys(email);
 
     // Password
     await driver
@@ -53,7 +53,7 @@ try
 
         await driver.wait(
             until.elementLocated(By.id("loginForm")),
-            5000
+            10000
         );
 
         // Enter Email
