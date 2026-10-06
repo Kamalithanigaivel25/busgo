@@ -13,7 +13,7 @@ async function signupAndLogin(driver, i) {
 
     //signup button click
      
-    await driver.findElement(By.css(".signup-btn")).click();
+    await driver.findElement(By.css(".primary-btn")).click();
 
     //wait for signup form to be visible
     await driver.wait(
@@ -64,17 +64,16 @@ async function test()
         
  try
     {
-        for(let i=1;i<=5;i++)
+        for(let i = 1; i <= 5; i++)
         {
         await signupAndLogin(driver,i) ;
 
         }
-    }catch(err)
-    {
+    }catch(err){
         console.log(err);
-    }
-    finally
-    {
+
+    }finally
+                {
         await driver.quit();
     }   
 } 
