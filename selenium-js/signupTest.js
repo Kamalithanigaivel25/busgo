@@ -59,7 +59,7 @@ try
         // Enter Email
 
         await driver.findElement(By.id("loginEmail"))
-        .sendKeys("kamali123@gmail.com");
+        .sendKeys(email);
 
         // Enter Password
 
