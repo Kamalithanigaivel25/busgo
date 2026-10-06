@@ -1,6 +1,10 @@
 const { Builder, By , until} = require("selenium-webdriver");
 
-async function signupAndLogin(driver, i) {
+async function signupAndLogin(i) {
+
+    const driver = await new Builder()
+        .forBrowser("chrome")
+        .build();
 
     const name = `kamali${i}`;
     const email = `kamali${i}@gmail.com`;
@@ -53,29 +57,22 @@ async function signupAndLogin(driver, i) {
 
     console.log(`     ===================`);
 
+    await driver.quit();
 }
 
 async function test() 
 {
-
-    const driver = await new Builder()
-        .forBrowser("chrome")
-        .build();
-        
- try
+try
     {
         for(let i = 1; i <= 5; i++)
         {
-        await signupAndLogin(driver,i) ;
+        await signupAndLogin(i) ;
 
         }
     }catch(err){
         console.log(err);
 
-    }finally
-                {
-        await driver.quit();
-    }   
-} 
+    }
+}
   
 test();
