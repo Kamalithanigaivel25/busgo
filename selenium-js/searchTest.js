@@ -37,4 +37,4 @@ async function searchBus(source, destination, date) {
 }
 
 
- searchBus(chennai, Bangalore, "2026-10-10");
+ searchBus("Chennai", "Bangalore", "2026-10-10");
