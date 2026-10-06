@@ -45,13 +45,13 @@ async function signupAndLogin(driver, i) {
 
     await driver.findElement(By.css(".primary-btn")).click();
 
-    console.log(`\n     ============`);
+    console.log(`\n     ==================`);
 
     console.log(`             LOOP ${i}`);
 
     console.log(`Signup and login successful for user: ${name}`);
 
-    console.log(`       ==============`);
+    console.log(`     ===================`);
 
 }
 
