@@ -1,88 +1,72 @@
 const { Builder, By , until} = require("selenium-webdriver");
 
-async function signupTest() {
+async function signupAndLogin(driver, i) {
+
+    const name = `kamali${i}`;
+    const email = `kamali${i}@gmail.com`;
+    const password = "12345";
+
+
+    //website open
+
+    await driver.get("https://thanigai.space");
+
+    //signup button click
+     
+    await driver.findElement(By.css("signup-btn")).click();
+
+    //wait for signup form to be visible
+    await driver.wait(
+        until.elementLocated(By.id("signupForm")),
+        5000
+    );
+
+    //fill the signup form
+
+    await driver.findElement(By.id("signupName")).sendKeys(name);
+    await driver.findElement(By.id("signupEmail")).sendKeys(email);
+    await driver.findElement(By.id("signupPassword")).sendKeys(password);
+
+    //submit the signup form
+    await driver.findElement(By.css("primary-btn")).click();
+
+    //wait for login form to be visible
+    await driver.wait(
+        until.elementLocated(By.id("loginForm")),
+        5000
+    );
+
+    //fill the login form
+
+    await driver.findElement(By.id("loginEmail")).sendKeys(email);
+    await driver.findElement(By.id("loginPassword")).sendKeys(password);
+
+    //submit the login form
+
+    await driver.findElement(By.css("primary-btn")).click();
+
+    console.log(`Signup and login successful for user: ${name}`);
+
+}
+
+async function test() 
+{
 
     const driver = await new Builder()
         .forBrowser("chrome")
         .build();
         
-try
-{
-    for (let i = 0; i <= 5; i++) {
+ try
+    {
+        for(let i=0;i<5;i++)
+        {
+        await signupAndLogin(driver,i) ;
 
-    //Dynamic email generation
-        const email = `kamali${i}@gmail.com`;
-        //console.log("using email:",email);
-     
-    // Website open
-    await driver.get("https://thanigai.space");
-
-    // Click on Signup button
-    await driver
-        .findElement(By.css(".signup-btn"))
-        .click();
-
-    //wait for the signup form
-       
-    await driver.wait(
-            until.elementLocated(By.id("signupForm")),
-            10000
-        );  
-
-    //  Enter Name
-    await driver
-        .findElement(By.id("signupName"))
-        .sendKeys("kamali${i}");
-
-    //  Enter Email
-    await driver
-        .findElement(By.id("signupEmail"))
-        .sendKeys(email);
-
-    // Password
-    await driver
-        .findElement(By.id("signupPassword"))
-        .sendKeys("12345");
-
-    // Signup button/Ctreate Account button
-    await driver
-        .findElement(By.css(".primary-btn"))
-        .click();
-
-    //=========Wait for Login page ======
-
-        await driver.wait(
-            until.elementLocated(By.id("loginForm")),
-            10000
-        );
-
-        // Enter Email
-
-        await driver.findElement(By.id("loginEmail"))
-        .sendKeys(email);
-
-        // Enter Password
-
-        await driver.findElement(By.id("loginPassword"))
-        .sendKeys("12345");
-
-        await driver.findElement(By.css(".primary-btn"))
-        .click();   
-
-        
-
-        console.log(" Signup successful");
-        console.log(" Login successful");
+        }
+    }catch(err)
+    {
+        console.log(err);
     }
-
-}
-catch (error) {
-    console.error(error);
-}
-finally {
-    await driver.quit();    
-    }
-
-}
-
-signupTest();
+} 
+  
+test();
