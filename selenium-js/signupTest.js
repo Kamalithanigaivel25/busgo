@@ -13,7 +13,7 @@ async function signupAndLogin(driver, i) {
 
     //signup button click
      
-    await driver.findElement(By.css("signup-btn")).click();
+    await driver.findElement(By.css(".signup-btn")).click();
 
     //wait for signup form to be visible
     await driver.wait(
@@ -43,7 +43,7 @@ async function signupAndLogin(driver, i) {
 
     //submit the login form
 
-    await driver.findElement(By.css("primary-btn")).click();
+    await driver.findElement(By.css(".primary-btn")).click();
 
     console.log(`Signup and login successful for user: ${name}`);
 
